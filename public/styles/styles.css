@@ -23,7 +23,7 @@ h1 {
 
 .form-container-four {
     display: grid;
-    gap: 1rem;
+    gap: 10px;
 }
 
 .form-group {
