@@ -6,11 +6,16 @@ h1 {
 form {
     display: grid;
     gap: 1rem;
-    grid-template-columns: 1fr 1fr 1fr;
 }
 
 .form-group {
     display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.form-group-two {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
 body {
