@@ -49,3 +49,7 @@ form {
 button {
     background-color:rgb(75, 128, 75);
 }
+
+fieldset {
+    background-color: white;
+}
