@@ -45,3 +45,7 @@ form {
     background-color: white;
     padding: 25px;
 }
+
+button {
+    color:lightgreen;
+}
