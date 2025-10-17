@@ -1,5 +1,4 @@
 h1 {
-    color:red;
     text-align: center;
 }
 
@@ -38,4 +37,9 @@ body {
     width: 50%;
     margin-left: auto;
     margin-right: auto;
+    background-color: darkgray;
+}
+
+form {
+    box-shadow: 5px 5px rgb(87, 87, 87);
 }
