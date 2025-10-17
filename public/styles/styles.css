@@ -2,6 +2,12 @@ h1 {
     text-align: center;
 }
 
+.form-container {
+    max-width: 60%;
+    margin: auto;
+    padding: 30px;
+}
+
 .form-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
