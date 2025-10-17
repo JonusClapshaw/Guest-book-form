@@ -2,8 +2,12 @@ h1 {
     color:red;
 }
 
-.form-group {
+form {
     display: grid;
     gap: 1rem;
     grid-template-columns: 1fr 1fr 1fr;
+}
+
+.form-group {
+    display: grid;
 }
