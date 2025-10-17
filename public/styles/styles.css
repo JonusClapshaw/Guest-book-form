@@ -11,3 +11,7 @@ form {
 .form-group {
     display: grid;
 }
+
+body {
+    width: 50%;
+}
