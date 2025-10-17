@@ -7,6 +7,19 @@
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-    <p>hello world</p>
+    <fieldset>
+            <legend>Personal Information</legend>
+                <label for="fname">First Name:</label><br>
+                <input type="text" id="fname" name="fname">
+                <span id = "err-fname" class = "error"> First Name cannot be blank </span>
+                <br>
+                <label for="lname">Last Name:</label><br>
+                <input type="text" id="lname" name="lname">
+                <span id = "err-lname" class = "error"> Last Name cannot be blank </span>
+                <br>
+                <label for="email">Email:</label><br>
+                <input type="text" id="email" name="email">
+                <span id = "err-email" class = "error"> Email cannot be blank </span>
+        </fieldset>
 </body>
 </html>
