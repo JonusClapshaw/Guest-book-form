@@ -9,6 +9,12 @@ h1 {
     grid-template-columns: repeat(3, 1fr);
 }
 
+.form-container-two {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+}
+
 .form-group {
     display: grid;
 }
