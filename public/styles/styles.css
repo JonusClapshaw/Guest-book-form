@@ -9,3 +9,9 @@ h1 {
       max-width: 60%;
       margin: auto;
 }
+
+.form-grid label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+}
