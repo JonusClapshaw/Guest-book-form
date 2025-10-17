@@ -21,6 +21,11 @@ h1 {
     grid-template-columns: 1fr;
 }
 
+.form-container-four {
+    display: grid;
+    gap: 1rem;
+}
+
 .form-group {
     display: grid;
 }
