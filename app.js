@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
 })
 
 // Define a submit route
-app.post('/views/home.html', (req, res) => {
+app.post('/submit', (req, res) => {
     console.log(req.body);
 
     const guestEntry = {
@@ -35,11 +35,12 @@ app.post('/views/home.html', (req, res) => {
         message: req.body.message,
         method: req.body.method,
         other: req.body.other
-    }
+    };
 
     guestEntries.push(guestEntry);
     console.log(guestEntries);
 
+    // Respond with the same page (so user stays on home)
     res.sendFile(`${import.meta.dirname}/views/home.html`);
 })
 
