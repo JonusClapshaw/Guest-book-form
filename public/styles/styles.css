@@ -53,3 +53,8 @@ button {
 fieldset {
     background-color: white;
 }
+
+.error {
+    color: red;
+    display: none;
+}
