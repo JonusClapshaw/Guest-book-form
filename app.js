@@ -28,10 +28,17 @@ app.post('submit', (req, res) => {
     console.log(req.body);
 
     const guestEntry = {
-        name: req.body.name,
+        fname: req.body.fname,
+        lname: req.body.lname,
         email: req.body.email,
+        linkedin: req.body.linkedin,
+        mailingList: req.body.mailingList,
         message: req.body.message
+
     }
+
+    orders.push(guestEntry);
+    console.log(orders);
 
     res.sendFile(`${import.meta.dirname}/views/home.html`);
 })
