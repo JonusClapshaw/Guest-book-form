@@ -22,14 +22,8 @@ app.get('/', (req, res) => {
     res.sendFile(`${import.meta.dirname}/views/home.html`);
 })
 
-// Define an "admin" route
-app.get('/admin', (req, res) => {
-
-    res.send(guestEntries);
-});
-
 // Define a submit route
-app.post('/submit', (req, res) => {
+app.post('/submit-order', (req, res) => {
     console.log(req.body);
 
     const guestEntry = {
