@@ -65,11 +65,6 @@ document.getElementById("ice-cream").onsubmit = () => {
         isValid = false;
     }
 
-    if(flavor === "none") {
-        document.getElementById("err-flavor").style.display = "block";
-        isValid = false;
-    }
-
     return isValid;
 }
 

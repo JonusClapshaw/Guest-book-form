@@ -5,9 +5,10 @@ const app = express();
 
 // Allow the app to parse form data
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 // Create an array to store orders
-const orders = [];
+const guestEntries = [];
 
 // Enable static file serving
 app.use(express.static('public'));
@@ -24,7 +25,7 @@ app.get('/', (req, res) => {
 })
 
 // Define a submit route
-app.post('submit', (req, res) => {
+app.post('/submit', (req, res) => {
     console.log(req.body);
 
     const guestEntry = {
@@ -37,8 +38,8 @@ app.post('submit', (req, res) => {
 
     }
 
-    orders.push(guestEntry);
-    console.log(orders);
+    guestEntries.push(guestEntry);
+    console.log(guestEntries);
 
     res.sendFile(`${import.meta.dirname}/views/home.html`);
 })
