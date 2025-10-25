@@ -5,7 +5,6 @@ const app = express();
 
 // Allow the app to parse form data
 app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
 
 // Create an array to store orders
 const guestEntries = [];
@@ -20,7 +19,6 @@ const PORT = 3003;
 //req: contains information about the incoming request
 //res: allows us to send back a response to the client
 app.get('/', (req, res) => {
-    //res.send('Welcome to ice cream!');
     res.sendFile(`${import.meta.dirname}/views/home.html`);
 })
 
