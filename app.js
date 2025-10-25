@@ -3,14 +3,14 @@ import express from 'express';
 //create an instance of an express application
 const app = express();
 
+// Enable static file serving
+app.use(express.static('public'));
+
 // Allow the app to parse form data
 app.use(express.urlencoded({ extended: true }));
 
 // Create an array to store orders
 const guestEntries = [];
-
-// Enable static file serving
-app.use(express.static('public'));
 
 //Define the port number where our server will listen 
 const PORT = 3003;
@@ -32,14 +32,15 @@ app.post('/submit', (req, res) => {
         email: req.body.email,
         linkedin: req.body.linkedin,
         mailingList: req.body.mailingList,
-        message: req.body.message
-
+        message: req.body.message,
+        method: req.body.method,
+        other: req.body.other
     }
 
     guestEntries.push(guestEntry);
     console.log(guestEntries);
 
-    //res.sendFile(`${import.meta.dirname}/views/home.html`);
+    res.sendFile(`${import.meta.dirname}/views/home.html`);
 })
 
 //Start the server and listen on the specified port
