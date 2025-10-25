@@ -1,4 +1,4 @@
-document.getElementById("ice-cream").onsubmit = () => {
+document.getElementById("guest-book").onsubmit = () => {
 
     clearErrors();
 
