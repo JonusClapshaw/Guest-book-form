@@ -39,7 +39,7 @@ app.post('/submit', (req, res) => {
     guestEntries.push(guestEntry);
     console.log(guestEntries);
 
-    res.sendFile(`${import.meta.dirname}/views/home.html`);
+    //res.sendFile(`${import.meta.dirname}/views/home.html`);
 })
 
 //Start the server and listen on the specified port
