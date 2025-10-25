@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
 })
 
 // Define a submit route
-app.post('/submit-order', (req, res) => {
+app.post('/views/home.html', (req, res) => {
     console.log(req.body);
 
     const guestEntry = {
