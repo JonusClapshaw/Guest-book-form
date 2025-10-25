@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
 })
 
 // Define a submit route
-/*app.post('/submit', (req, res) => {
+app.post('submit', (req, res) => {
     console.log(req.body);
 
     const guestEntry = {
@@ -33,8 +33,8 @@ app.get('/', (req, res) => {
         message: req.body.message
     }
 
-    //res.sendFile(`${import.meta.dirname}/views/submit.html`);
-})*/
+    //res.sendFile(`${import.meta.dirname}/views/home.html`);
+})
 
 //Start the server and listen on the specified port
 app.listen(PORT, () => {
