@@ -36,6 +36,21 @@ document.getElementById("ice-cream").onsubmit = () => {
         isValid = false;
     }
 
+    if(linkedin && !linkedin.startsWith("https://linkedin.com/in/")) {
+        document.getElementById("err-linkedin").style.display = "block";
+        isValid = false;
+    }
+
+    if(mail && !email) {
+        document.getElementById("err-mail").style.display = "block";
+        isValid = false;
+    }
+
+    if(!email || email.indexOf("@") === -1 || email.indexOf(".") === -1) {
+        document.getElementById("err-email").style.display = "block";
+        isValid = false;
+    }
+
     // validate cones
     let methodButton = document.getElementsByName("method");
     let count = 0;
