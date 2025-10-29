@@ -22,9 +22,9 @@ app.get('/', (req, res) => {
     res.sendFile(`${import.meta.dirname}/views/home.html`);
 })
 
-/*app.get('/return', (req, res) => {
+app.get('/return', (req, res) => {
     res.sendFile(`${import.meta.dirname}/views/home.html`);
-})*/
+})
 
 // Define a submit route
 app.post('/submit', (req, res) => {
