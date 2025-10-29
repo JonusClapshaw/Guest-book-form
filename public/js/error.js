@@ -41,11 +41,6 @@ document.getElementById("guest-book").onsubmit = () => {
         isValid = false;
     }
 
-    if(mail && !email) {
-        document.getElementById("err-mail").style.display = "block";
-        isValid = false;
-    }
-
     if(!email || email.indexOf("@") === -1 || email.indexOf(".") === -1) {
         document.getElementById("err-email").style.display = "block";
         isValid = false;

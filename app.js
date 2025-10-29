@@ -38,11 +38,15 @@ app.post('/submit', (req, res) => {
     };
 
     guestEntries.push(guestEntry);
-    console.log(guestEntries);
 
     // Respond with the same page (so user stays on home)
+    res.sendFile(`${import.meta.dirname}/views/confirmation.html`);
+})
+
+app.post('/return', (req, res) => {
     res.sendFile(`${import.meta.dirname}/views/home.html`);
 })
+
 
 //Start the server and listen on the specified port
 app.listen(PORT, () => {
