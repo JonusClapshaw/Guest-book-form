@@ -43,7 +43,7 @@ app.post('/submit', (req, res) => {
     res.sendFile(`${import.meta.dirname}/views/confirmation.html`);
 })
 
-app.post('/return', (req, res) => {
+app.get('/return', (req, res) => {
     res.sendFile(`${import.meta.dirname}/views/home.html`);
 })
 
