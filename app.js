@@ -22,9 +22,12 @@ app.get('/', (req, res) => {
     res.sendFile(`${import.meta.dirname}/views/home.html`);
 })
 
+/*app.get('/return', (req, res) => {
+    res.sendFile(`${import.meta.dirname}/views/home.html`);
+})*/
+
 // Define a submit route
 app.post('/submit', (req, res) => {
-    console.log(req.body);
 
     const guestEntry = {
         fname: req.body.fname,
@@ -39,12 +42,7 @@ app.post('/submit', (req, res) => {
 
     guestEntries.push(guestEntry);
 
-    // Respond with the same page (so user stays on home)
     res.sendFile(`${import.meta.dirname}/views/confirmation.html`);
-})
-
-app.get('/return', (req, res) => {
-    res.sendFile(`${import.meta.dirname}/views/home.html`);
 })
 
 
