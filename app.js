@@ -6,24 +6,30 @@ const app = express();
 // Enable static file serving
 app.use(express.static('public'));
 
-// Allow the app to parse form data
-app.use(express.urlencoded({ extended: true }));
-
 // Create an array to store orders
 const guestEntries = [];
 
 //Define the port number where our server will listen 
 const PORT = 3003;
 
+app.set ('view engine', 'ejs');
+
+// Allow the app to parse form data
+app.use(express.urlencoded({ extended: true }));
+
 //Define a default "route" ('/')
 //req: contains information about the incoming request
 //res: allows us to send back a response to the client
 app.get('/', (req, res) => {
-    res.sendFile(`${import.meta.dirname}/views/home.html`);
+    res.sendFile('home');
 })
 
-app.get('/return', (req, res) => {
-    res.sendFile(`${import.meta.dirname}/views/home.html`);
+app.get('/confirm', (req, res) => {
+    res.render('confirmation');
+});
+
+app.get('/admin', (req, res) => {
+    res.sendFile('admin');
 })
 
 // Define a submit route
@@ -41,10 +47,14 @@ app.post('/submit', (req, res) => {
     };
 
     guestEntries.push(guestEntry);
+    console.log(guestEntries);
 
-    res.sendFile(`${import.meta.dirname}/views/confirmation.html`);
+    res.sendFile('confirmation', {guestEntry});
 })
 
+app.post('/return', (req, res) => {
+    res.sendFile('home');
+})
 
 //Start the server and listen on the specified port
 app.listen(PORT, () => {

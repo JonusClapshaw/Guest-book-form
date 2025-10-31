@@ -6,17 +6,16 @@
     <title>Guest-Book-Form</title>
     <link rel="stylesheet" href="styles/styles.css">
     <script src="js/error.js" defer></script>
-
     <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQYcENVSbpuKUMylaVjx6boFkb46opCmc4Pg&s">
 </head>
 
 <body>
-    <form id="guest-book" action="/submit" method="post">
+    <form id="guest-book" action="submit" method="post">
         <h1>Contact Form</h1>
         <div class = "form-container">
             <div class="form-group">
-                <label for="fname">First Name</label>
-                <input type="text" id="fname" name="fname">
+                <legend>First Name</legend>
+                <input type='text' id="fname" name="fname"></input>
                 <span id = "err-fname" class = "error"> First Name cannot be blank </span>
             </div>
 
@@ -56,7 +55,7 @@
                     <option value="none">Please Select</option>
                     <option value="online"> Online</option>
                     <option value="peertopeer"> Peer to Peer</option>
-                    <option value="email"> Email</option>
+                    <option value="mmail"> Email</option>
                 </select>
             </div>
 
@@ -78,13 +77,13 @@
         </div>  
         <div class="form-container-four">
             <legend> Choose an email format: </legend>
-            <label for ="styleformat" >
+            <label for ="html" >
                     <input type ="radio" id ="html" name = "method" value = "html"> HTML
             </label>
             <label for ="text" >
                     <input type ="radio" id ="text" name = "method" value = "text"> Text
             </label>
-        </div> 
+        </div>
 
         <button type="submit" id="submit-button">Submit </button>
     </form>

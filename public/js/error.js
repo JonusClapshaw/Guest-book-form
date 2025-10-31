@@ -1,4 +1,4 @@
-document.getElementById("guest-book").onsubmit = () => {
+document.getElementById('guest-book').onsubmit = () => {
 
     clearErrors();
 
@@ -7,7 +7,8 @@ document.getElementById("guest-book").onsubmit = () => {
     let lname = document.getElementById('lname').value.trim();
     let email = document.getElementById('email').value.trim();
     let linkedin = document.getElementById('linkedin').value.trim();
-    let mail = document.getElementById('mailing-list').checked;
+    let mail = document.getElementById('mail').checked;
+    
     let isValid = true; 
 
     if(fname === "") {
@@ -15,7 +16,7 @@ document.getElementById("guest-book").onsubmit = () => {
         isValid = false;
     }
 
-    if(lname === "") {
+    /*if(lname === "") {
         document.getElementById("err-lname").style.display = "block";
         isValid = false;
     }
@@ -42,8 +43,8 @@ document.getElementById("guest-book").onsubmit = () => {
     if(count === 0) {
          document.getElementById("err-method").style.display = "block";
         isValid = false;
-    }
-
+    }*/
+    console.log(isValid)
     return isValid;
 }
 
@@ -54,3 +55,4 @@ function clearErrors(){
         errors[i].style.display = "none";
     }
 }
+
