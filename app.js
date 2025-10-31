@@ -1,60 +1,44 @@
 import express from 'express';
-import path from 'path';
-import { fileURLToPath } from 'url';
 
-// __dirname fix for ES modules
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
+//create an instance of an express application
 const app = express();
 
-// ---------------------------
-// Middleware
-// ---------------------------
+// Enable static file serving
+app.use(express.static('public'));
 
-// Serve static files (CSS, JS, images) from "public"
-app.use('/public', express.static(path.join(__dirname, 'public')));
-
-// Parse form data
-app.use(express.urlencoded({ extended: true }));
-
-// ---------------------------
-// View engine setup
-// ---------------------------
-app.set('view engine', 'ejs'); // use EJS
-app.set('views', path.join(__dirname, 'views')); // explicit views folder
-
-// ---------------------------
-// Data storage
-// ---------------------------
+// Create an array to store orders
 const guestEntries = [];
 
-// ---------------------------
-// Routes
-// ---------------------------
+//Define the port number where our server will listen 
+const PORT = 3003;
 
-// Home page
-app.get('/', (req, res) => {
-    res.render('home'); // looks for home.ejs in views
-});
+app.set ('view engine', 'ejs');
 
-// Confirmation page
+// Allow the app to parse form data
+app.use(express.urlencoded({ extended: true }));
+
+//Define a default "route" ('/')
+//req: contains information about the incoming request
+//res: allows us to send back a response to the client
+app.get('/' , (req, res) => {
+    res.render('home');
+})
+
 app.get('/confirm', (req, res) => {
     res.render('confirmation');
 });
 
-// Admin page
 app.get('/admin', (req, res) => {
-    res.render('admin', { guestEntries });
-});
+    res.render('admin', {guestEntries});
+})
 
-// Return to home
-app.post('/return', (req, res) => {
+app.post('/return' , (req, res) => {
     res.render('home');
-});
+})
 
-// Form submission
+// Define a submit route
 app.post('/submit-order', (req, res) => {
+
     const guestEntry = {
         fname: req.body.fname,
         lname: req.body.lname,
@@ -72,13 +56,10 @@ app.post('/submit-order', (req, res) => {
     guestEntries.push(guestEntry);
     console.log(guestEntries);
 
-    res.render('confirmation', { guestEntry });
-});
+    res.render('confirmation', {guestEntry});
+})
 
-// ---------------------------
-// Start server
-// ---------------------------
-const PORT = 3003;
+//Start the server and listen on the specified port
 app.listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}`);
-});
+    console.log(`Server is running at http:localhost:${PORT}`);
+})
