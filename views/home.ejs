@@ -10,12 +10,12 @@
 </head>
 
 <body>
-    <form id="guest-book" action="submit" method="post">
+    <form id="guest-book" action="submit-order" method="post">
         <h1>Contact Form</h1>
         <div class = "form-container">
             <div class="form-group">
-                <legend>First Name</legend>
-                <input type='text' id="fname" name="fname"></input>
+                <label for="fname">First Name</label>
+                <input type='text' id="fname" name="fname">
                 <span id = "err-fname" class = "error"> First Name cannot be blank </span>
             </div>
 
@@ -38,7 +38,7 @@
             <div class="form-group">
                 <label for="linkedin">LinkedIn</label>
                 <input type="text" id="linkedin" name="linkedin">
-                <span id = "err-linkedin" class = "error"> LinkedIn cannot be blank </span>
+                <span id = "err-linkedin" class = "error"> LinkedIn must begin with https://linkedin.com/in/</span>
             </div>
 
             <div class="form-group">
@@ -55,7 +55,7 @@
                     <option value="none">Please Select</option>
                     <option value="online"> Online</option>
                     <option value="peertopeer"> Peer to Peer</option>
-                    <option value="mmail"> Email</option>
+                    <option value="mail"> Email</option>
                 </select>
             </div>
 
@@ -70,18 +70,18 @@
                 <label for="message">Message</label>
                 <textarea cols= "80"rows="5" id="message" name="message"></textarea>
             </div>
-            <label for ="mail" >
-            <input type ="checkbox" id ="mail" name = "method" value = "mail"> Please add me to the mailing list
-            <span id = "err-mail" class = "error"> Please have email if you want to be added to the mailing list</span>
+            <label for ="method" >
+                <input type ="checkbox" id ="mail" name = "method" value = "mail"> Please add me to the mailing list
+                 <span id = "err-mail" class = "error"> Please have email if you want to be added to the mailing list</span>
             </label>  
         </div>  
         <div class="form-container-four">
             <legend> Choose an email format: </legend>
             <label for ="html" >
-                    <input type ="radio" id ="html" name = "method" value = "html"> HTML
+                    <input type ="radio" id ="html" name = "type[]" value = "html"> HTML
             </label>
             <label for ="text" >
-                    <input type ="radio" id ="text" name = "method" value = "text"> Text
+                    <input type ="radio" id ="text" name = "type[]" value = "text"> Text
             </label>
         </div>
 

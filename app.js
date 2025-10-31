@@ -20,8 +20,8 @@ app.use(express.urlencoded({ extended: true }));
 //Define a default "route" ('/')
 //req: contains information about the incoming request
 //res: allows us to send back a response to the client
-app.get('/', (req, res) => {
-    res.sendFile('home');
+app.get('/' , (req, res) => {
+    res.render('home');
 })
 
 app.get('/confirm', (req, res) => {
@@ -29,31 +29,34 @@ app.get('/confirm', (req, res) => {
 });
 
 app.get('/admin', (req, res) => {
-    res.sendFile('admin');
+    res.render('admin', {guestEntries});
+})
+
+app.post('/return' , (req, res) => {
+    res.render('home');
 })
 
 // Define a submit route
-app.post('/submit', (req, res) => {
+app.post('/submit-order', (req, res) => {
 
     const guestEntry = {
         fname: req.body.fname,
         lname: req.body.lname,
-        email: req.body.email,
+        jtitle: req.body.jtitle,
+        company: req.body.company,
         linkedin: req.body.linkedin,
-        mailingList: req.body.mailingList,
+        email: req.body.email,
+        meet: req.body.meet,
+        other: req.body.other,
         message: req.body.message,
-        method: req.body.method,
-        other: req.body.other
+        mailingList: req.body.mailingList,
+        method: req.body.method
     };
 
     guestEntries.push(guestEntry);
     console.log(guestEntries);
 
-    res.sendFile('confirmation', {guestEntry});
-})
-
-app.post('/return', (req, res) => {
-    res.sendFile('home');
+    res.render('confirmation', {guestEntry});
 })
 
 //Start the server and listen on the specified port
