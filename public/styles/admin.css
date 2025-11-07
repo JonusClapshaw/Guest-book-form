@@ -1,0 +1,16 @@
+h2 {
+    text-align: center;
+    color: red;
+}
+
+header section {
+    background-color: white;
+    justify-content: center;
+}
+
+nav {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;           
+    gap: 20px;
+}

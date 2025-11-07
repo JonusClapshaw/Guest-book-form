@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guest-Book-Form</title>
 
-    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/admin.css">
 
     <script src="js/error.js" defer></script>
     <script src="//code.jquery.com/jquery-3.7.1.js"></script>
@@ -28,9 +28,15 @@
 -->
 
 <body>
+    <%- include('partials/header') %>
+
     <h1>Admin Page</h1>
         <table id = "summary-table" class = "display">
-            <thead>
+            <% if (guestEntries.length === 0) { %> 
+                <h2>It looks like there is no contacts currently.</h2>
+            <% } else { %>
+
+                <thead>
                 <tr>
                     <th>Name</th>
                     <th>Email</th>
@@ -43,6 +49,7 @@
                     <th>Message</th>
                     <th>Mailing List</th>
                     <th>Format</th>
+                    <th>Time Submitted</th>
                 </tr>
             </thead>
             <tbody>
@@ -59,9 +66,12 @@
                         <td><%= guestEntry.message %></td>
                         <td><%= guestEntry.mail %></td>
                         <td><%= guestEntry.method %></td>
+                        <td><%= guestEntry.time %></td>
                     </tr>
                 <% }); %>
             </tbody>
+
+            <% } %>
         </table>
 
     <script defer>

@@ -21,11 +21,6 @@ document.getElementById("guest-book").onsubmit = () => {
         isValid = false;
     }
 
-    if(!linkedin.startsWith("https://linkedin.com/in/")) {
-        document.getElementById("err-linkedin").style.display = "block";
-        isValid = false;
-    }
-
     if(!email || email.indexOf("@") === -1 && email.indexOf(".") === -1) {
         document.getElementById("err-email").style.display = "block";
         isValid = false;

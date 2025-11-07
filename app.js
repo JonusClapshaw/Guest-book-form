@@ -9,6 +9,9 @@ app.use(express.static('public'));
 // Create an array to store orders
 const guestEntries = [];
 
+const now = new Date();
+const formattedTime = now.toLocaleString();
+
 //Define the port number where our server will listen 
 const PORT = 3003;
 
@@ -21,6 +24,10 @@ app.use(express.urlencoded({ extended: true }));
 //req: contains information about the incoming request
 //res: allows us to send back a response to the client
 app.get('/' , (req, res) => {
+    res.render('resume');
+})
+
+app.get('/form', (req, res) => {
     res.render('home');
 })
 
@@ -50,7 +57,8 @@ app.post('/submit-order', (req, res) => {
         other: req.body.other,
         message: req.body.message,
         mailingList: req.body.mailingList,
-        method: req.body.method
+        method: req.body.method,
+        time: formattedTime
     };
 
     guestEntries.push(guestEntry);

@@ -10,6 +10,8 @@
 </head>
 
 <body>
+    <%- include('partials/header') %>
+
     <form id="guest-book" action="submit-order" method="post">
         <h1>Contact Form</h1>
         <div class = "form-container">
@@ -38,7 +40,6 @@
             <div class="form-group">
                 <label for="linkedin">LinkedIn</label>
                 <input type="text" id="linkedin" name="linkedin">
-                <span id = "err-linkedin" class = "error"> LinkedIn must begin with https://linkedin.com/in/</span>
             </div>
 
             <div class="form-group">

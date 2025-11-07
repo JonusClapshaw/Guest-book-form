@@ -1,0 +1,128 @@
+:root {
+    --primary: #F1E8B8;
+    --secondary: #dbd19a;
+}
+
+section {
+    background: var(--primary);
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-top: 20px;
+    box-shadow: 0px 0px 4px black;
+}
+
+body {
+    background-color: var(--secondary);
+    max-width: 80%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+body {
+    font-family:'Times New Roman', Times, serif;
+    line-height: normal;
+    letter-spacing: normal;
+}
+
+img {
+    border: 3px solid black;
+    box-shadow: 0px 0px 4px black;
+    border-radius: 50%;
+    border-width: 10px;
+    border-color: var(--secondary);
+    width: 100px;
+    height: 100px;
+    margin-top: 5px;
+}
+
+a   {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover, a:focus {
+    text-decoration: underline;
+}
+
+.container {
+    overflow: auto;
+    width: auto;
+}
+
+.left {
+    float: left;
+    text-align: left;
+    margin-left: 50px;
+}
+
+.right {
+    float: right;
+    text-align: left;
+    margin-right: 50px;
+}
+
+header {
+    text-align: center;
+}
+
+p {
+    text-align: left;
+    line-height: 0;
+}
+
+hr {
+    width: 50%;
+}
+
+h1 {
+    border-bottom: 2px solid var(--secondary);
+}
+
+section {
+    margin-top: 10px;
+}
+
+section h3 {
+    margin-left: 20px;
+}
+
+.custom li:hover {
+    text-decoration: underline;
+    background-color: var(--secondary);
+}
+
+@media (max-width: 768px) {
+    .container {
+        overflow: auto;
+        width: auto;
+    }
+    .left {
+        float: left;
+        text-align: left;
+        margin-left: 20px;
+    }
+
+    .right {
+        float: right;
+        text-align: left;
+        margin-right: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        overflow: auto;
+        width: auto;
+    }
+    .left {
+        float: left;
+        text-align: left;
+        margin-left: 20px;
+    }
+
+    .right {
+        float: left;
+        text-align: left;
+        margin-right: 20px;
+    }
+}
