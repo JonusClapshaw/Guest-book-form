@@ -52,7 +52,6 @@ app.get('/form', (req, res) => {
 
 // Confirmation page
 app.get('/confirm', (req, res) => {
-    const contact = { fname: '', lname: '', jtitle: '', company: '', linkedin: '', email: '', meet: '', other: '', message: '' };
     res.render("confirmation", { contact });
 });
 
