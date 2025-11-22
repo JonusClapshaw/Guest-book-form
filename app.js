@@ -52,7 +52,7 @@ app.get('/form', (req, res) => {
 
 // Confirmation page
 app.get('/confirm', (req, res) => {
-    res.render('confirmation');
+    res.render("confirmation", { contacts: contacts });
 });
 
 // Admin page - list all contacts
@@ -84,19 +84,18 @@ app.post('/return', (req, res) => {
     res.render('home');
 });
 
-// Submit contact form
+//submit form
 app.post('/submit-order', async (req, res) => {
     try {
         const contact = req.body;
 
-        // Map checkbox and radio values
         const mailinglist = contact.method === 'mail' ? 'yes' : 'no';
-        const formType = contact['type[]'] || ''; // HTML or Text
+        const formType = contact['type[]'] || '';
 
         const sql = `
-            INSERT INTO contacts
-            (fname, lname, jtitle, company, linkedin, email, meet, other, message, mailinglist, form)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        INSERT INTO contacts 
+        (fname, lname, jtitle, company, linkedin, email, meet, other, message, mailinglist, form)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         `;
         const params = [
             contact.fname,
@@ -113,12 +112,15 @@ app.post('/submit-order', async (req, res) => {
         ];
 
         const [result] = await pool.execute(sql, params);
-        console.log('Inserted with ID:', result.insertId);
 
-        res.render('confirmation', { guestEntry: contact });
+        console.log("Inserted with ID:", result.insertId);
+
+        // Pass the single contact to the template
+        res.render("confirmation", { contact: contact });
+
     } catch (err) {
-        console.error('Error inserting contact:', err);
-        res.status(500).send('Database error: ' + err.message);
+        console.error("Error inserting contact:", err);
+        res.status(500).send("Database error: " + err.message);
     }
 });
 
