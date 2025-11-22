@@ -1,5 +1,9 @@
-fname + lname
-jtitle
-company
-linkedin
-email
+Prior Point loss: 
+* Email is no longer an error
+
+TODO:
+* Get sql server up and running
+* Check server validation
+* Fill SQL work bench with values
+
+
