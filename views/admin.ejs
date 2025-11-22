@@ -3,49 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guest-Book-Form</title>
+    <title>Admin - Guest Book</title>
 
     <link rel="stylesheet" href="styles/admin.css">
-
-    <script src="js/error.js" defer></script>
     <script src="//code.jquery.com/jquery-3.7.1.js"></script>
     <script src="//cdn.datatables.net/2.3.4/js/dataTables.min.js"></script>
-
     <link rel="stylesheet" href="//cdn.datatables.net/2.3.4/css/dataTables.dataTables.min.css">
-
 
     <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQYcENVSbpuKUMylaVjx6boFkb46opCmc4Pg&s">
 </head>
-
-<!--fname: req.body.fname,
-    lname: req.body.lname,
-    email: req.body.email,
-    linkedin: req.body.linkedin,
-    mailingList: req.body.mailingList,
-    message: req.body.message,
-    method: req.body.method,
-    other: req.body.other
--->
-
 <body>
     <%- include('partials/header') %>
 
     <h1>Admin Page</h1>
-        <table id = "summary-table" class = "display">
-            <% if (guestEntries.length === 0) { %> 
-                <h2>It looks like there is no contacts currently.</h2>
-            <% } else { %>
 
-                <thead>
+    <% if (contacts.length === 0) { %> 
+        <h2>It looks like there are no contacts currently.</h2>
+    <% } else { %>
+        <table id="summary-table" class="display">
+            <thead>
                 <tr>
                     <th>Name</th>
                     <th>Email</th>
                     <th>Job Title</th>
                     <th>Company</th>
                     <th>LinkedIn</th>
-                    <th>Email</th>
                     <th>Meet</th>
-                    <th>other</th>
+                    <th>Other</th>
                     <th>Message</th>
                     <th>Mailing List</th>
                     <th>Format</th>
@@ -53,29 +37,29 @@
                 </tr>
             </thead>
             <tbody>
-                <% guestEntries.forEach(guestEntry => { %>
+                <% contacts.forEach(contact => { %>
                     <tr>
-                        <td><%= guestEntry.fname %><%= guestEntry.lname %></td>
-                        <td><%= guestEntry.email %></td>
-                        <td><%= guestEntry.jtitle %></td>
-                        <td><%= guestEntry.company %></td>
-                        <td><%= guestEntry.linkedin %></td>
-                        <td><%= guestEntry.email %></td>
-                        <td><%= guestEntry.meet %></td>
-                        <td><%= guestEntry.other %></td>
-                        <td><%= guestEntry.message %></td>
-                        <td><%= guestEntry.mail %></td>
-                        <td><%= guestEntry.method %></td>
-                        <td><%= guestEntry.time %></td>
+                        <td><%= contact.fname %> <%= contact.lname %></td>
+                        <td><%= contact.email %></td>
+                        <td><%= contact.jtitle %></td>
+                        <td><%= contact.company %></td>
+                        <td><%= contact.linkedin %></td>
+                        <td><%= contact.meet %></td>
+                        <td><%= contact.other %></td>
+                        <td><%= contact.message %></td>
+                        <td><%= contact.mailinglist %></td>
+                        <td><%= contact.form %></td>
+                        <td><%= contact.formattedTimestamp %></td>
                     </tr>
                 <% }); %>
             </tbody>
-
-            <% } %>
         </table>
+    <% } %>
 
-    <script defer>
-        let table = new DataTable('#summary-table');
+    <script>
+        $(document).ready(function() {
+            $('#summary-table').DataTable();
+        });
     </script>
 </body>
 </html>
