@@ -16,25 +16,29 @@
     <%- include('partials/header') %>
     <form id="guest-book" action="return" method="post">
         <h1>Thank you for filling out the form</h1>
-        <div class = "item-container">
-            <div class = "item">
+        <div class="item-container">
+        <% if (contact) { %>
+            <div class="item">
                 <p>Name: <%= contact.fname %> <%= contact.lname %></p>
             </div>
-            <div class = "item">
+            <div class="item">
                 <p>Job title: <%= contact.jtitle %></p>
             </div>
-            <div class = "item">
+            <div class="item">
                 <p>Company: <%= contact.company %></p>
             </div>
-            <div class = "item">
+            <div class="item">
                 <p>LinkedIn: <%= contact.linkedin %></p>
             </div>
-            <div class = "item">
+            <div class="item">
                 <p>Email: <%= contact.email %></p>
             </div>
-            <div class = "item">
+            <div class="item">
                 <p>Submitted: <%= contact.formattedTimestamp %></p>
-        </div>
+            </div>
+            <% } else { %>
+                <p>No contact information available.</p>
+            <% } %>
         </div>
         <button type="submit" id="return-button">return </button>
     </form>
