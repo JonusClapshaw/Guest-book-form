@@ -52,7 +52,7 @@ app.get('/form', (req, res) => {
 
 // Confirmation page
 app.get('/confirm', (req, res) => {
-    res.render("confirmation", { contacts: contacts });
+    res.render("confirmation");
 });
 
 // Admin page - list all contacts
