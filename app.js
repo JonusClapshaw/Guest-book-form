@@ -40,7 +40,7 @@ app.get('/db-test', async(req, res) => {
 
     // try/catch block for error handling
     try {
-        const [orders] = await pool.query('SELECT * FROM orders');
+        const [orders] = await pool.query('SELECT * FROM guest_book ORDER BY timestamp DESC');
         // Send the orders data back to the browser as JSON
         res.send(orders);
     } catch(err) {
@@ -73,7 +73,7 @@ app.get('/admin', async(req, res) => {
 
     try {
         // Fetch all orders from the database, newest first
-        const [contacts] = await pool.query('SELECT * FROM contacts ORDER BY timestamp DESC');
+        const [contacts] = await pool.query('SELECT * FROM guest_book ORDER BY timestamp DESC');
 
         // Optional: Format timestamps for better display
         contacts.forEach(contact => {
@@ -147,7 +147,7 @@ app.post('/submit-order', async(req, res) => {
         // The ? are PLACEHOLDERS that will be replaced with actual values
         // This prevents SQL injection (a common security vulnerability)
 
-        const sql = `INSERT INTO orders (customer, email, flavor, cone, toppings, timestamp) VALUES (?, ?, ?, ?, ?, ?)`;
+        const sql = `INSERT INTO guest_book (fname, lname, jtitle, company, linkedin, email, meet, other, message, mailingList, method, timestamp) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
 
         // Create an array of parameters for each ? placeholder in order
         const guestEntry = [
